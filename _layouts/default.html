@@ -4,27 +4,15 @@ layout: compress
 
 <!DOCTYPE html>
 <html>
-<!-- HEAD -->
 {% include head.html %}
 
 <body>
-
-  <!-- NAVIGATION -->
   {% include navigation.html %}
 
-  <!-- AD BANNER -->
-  <div class="container">
-    <div class="ad-box text-center my-3">
-      {% include adbanner.html %}
-    </div>
+  <div id="wrapper" class="container py-4">
+    <div class="wrapper">{{ content }}</div>
   </div>
 
-  <!-- CONTENT -->
-  <div class="container">
-    {{ content }}
-  </div>
-
-  <!-- FOOTER -->
   {% include footer.html %}
 
   <!-- JS, Popper.js, and jQuery -->
@@ -35,11 +23,9 @@ layout: compress
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/script.js"></script>
+  <script src="/js/main.js"></script>
 
-  <!-- ANALYTICS -->
-  {% include analytics.html %}
-
+  {% if site.analytics %}{% include analytics.html %}{% endif %}
 </body>
 
 </html>

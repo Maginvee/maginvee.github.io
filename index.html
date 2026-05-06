@@ -4,100 +4,54 @@ layout: default
 
 {% assign now = site.time | date: "%s" %}
 
-<div class="my-4">
+<div class="row g-3" id="post-container">
 
-  {% if page.url == "/" or page.url == "/index.html" %}
+  {% assign visible_count = 0 %}
 
-  <!-- TOP SECTION -->
-  <div class="row g-4">
+  {% for post in paginator.posts %}
 
-    <!-- FEATURED -->
-    <div class="col-lg-7">
+  {% assign publish_time = post.publish_at | date: "%s" %}
 
-      <h6 class="fw-bold text-uppercase mb-3">
-        <span class="text-danger">/</span> FEATURED POST <span class="text-danger">/</span>
-      </h6>
+  {% if post.publish_at == nil or publish_time <= now %}
 
-      {% assign featured_post = nil %}
-      {% for post in site.posts %}
-      {% if post.tags contains "featured" %}
-      {% assign publish_time = post.publish_at | date: "%s" %}
-      {% if post.publish_at == nil or publish_time <= now %}
-      {% assign featured_post = post %}
-      {% break %}
-      {% endif %}
-      {% endif %}
-      {% endfor %}
+  {% assign visible_count = visible_count | plus: 1 %}
 
-      {% if featured_post %}
-      <div class="card border-0">
+  <div class="col-12 col-md-6 col-lg-4 post-item" data-category="{{ post.categories | join: ' ' }}">
 
-        <a href="{{ featured_post.url | relative_url }}" class="text-decoration-none text-dark">
+    <div class="card border border-1 bg-light h-100 card-hover shadow-none">
 
-          {% if featured_post.image %}
-          <div class="position-relative">
-            <img src="{{ featured_post.image | relative_url }}" class="w-100 rounded"
-              style="aspect-ratio:16/9; object-fit:cover;" loading="lazy">
-          </div>
-          {% endif %}
-
-          <!-- TEXT DI BAWAH -->
-          <div class="mt-3">
-
-            <!-- CATEGORY -->
-            {% if featured_post.categories %}
-            <div class="small text-danger fw-semibold mb-1">
-              {{ featured_post.categories | first }}
-            </div>
-            {% endif %}
-
-            <!-- TITLE -->
-            <h2 class="fw-bold text-dark mb-2">
-              {{ featured_post.title }}
-            </h2>
-
-          </div>
-
-        </a>
-
-      </div>
-      {% endif %}
-
-    </div>
-
-    <!-- POPULAR -->
-    <div class="col-lg-5">
-
-      <h6 class="fw-bold text-uppercase mb-3">
-        <span class="text-danger">/</span> POPULER <span class="text-danger">/</span>
-      </h6>
-
-      {% for post in site.posts limit:5 %}
-      <div class="d-flex mb-3 gap-3 align-items-start">
+      <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
 
         {% if post.image %}
-        <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image | relative_url }}" class="rounded"
-            style="min-width: 120px; height:75px;object-fit:cover;">
-        </a>
+        <div class="overflow-hidden position-relative">
+
+          {% assign post_time = post.date | date: "%s" %}
+          {% assign diff = now | minus: post_time %}
+
+          {% if diff < 604800 %}
+          <span class="badge bg-danger position-absolute m-2">NEW</span>
+          {% endif %}
+
+          <img src="{{ post.image | relative_url }}" class="card-img-top" style="aspect-ratio: 4/3; object-fit: cover;"
+            loading="lazy">
+        </div>
         {% endif %}
 
-        <div class="flex-grow-1">
+        <div class="card-body">
+          <h4 class="fw-semibold mb-2 text-capitalize">
+            {{ post.title }}
+          </h4>
 
-          <!-- CATEGORY -->
-          <div class="small text-danger fw-semibold">
-            {{ post.categories | first }}
-          </div>
+          <small class="text-muted d-block mb-2">
+            {{ post.date | date: "%b %-d, %Y" }}
+          </small>
 
-          <!-- TITLE -->
-          <a href="{{ post.url | relative_url }}" class="text-dark text-decoration-none fw-semibold d-block">
-            {{ post.title | truncate: 60 }}
-          </a>
-
+          <p class="excerpt">
+            {{ post.excerpt | strip_html | truncate: 100 }}
+          </p>
         </div>
 
-      </div>
-      {% endfor %}
+      </a>
 
     </div>
 
@@ -105,90 +59,21 @@ layout: default
 
   {% endif %}
 
+  {% endfor %}
 
-  <!-- MAIN CONTENT -->
-  <div class="my-5">
-
-    <h6 class="fw-bold text-uppercase mb-3">
-      <span class="text-danger">/</span> ARTIKEL TERBARU <span class="text-danger">/</span>
-    </h6>
-
-    {% assign now = site.time | date: "%s" %}
-
-    <div class="row g-4">
-
-      {% assign has_post = false %}
-
-      {% for post in paginator.posts %}
-      {% assign publish_time = post.publish_at | date: "%s" %}
-
-      {% if post.publish_at == nil or publish_time <= now %}
-      {% assign has_post = true %}
-
-      <div class="col-12 col-md-4">
-        <div class="card border-0 h-100">
-
-          <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
-
-            {% if post.image %}
-            <div class="position-relative">
-              <img src="{{ post.image | relative_url }}" class="w-100 rounded"
-                style="aspect-ratio:16/9; object-fit:cover;" loading="lazy">
-            </div>
-            {% endif %}
-
-            <div class="mt-3">
-
-              <!-- CATEGORY -->
-              {% if post.categories %}
-              <div class="small text-danger fw-semibold mb-1">
-                {{ post.categories[0] }}
-              </div>
-              {% endif %}
-
-              <!-- TITLE -->
-              <h4 class="fw-bold text-dark mb-1">
-                {{ post.title }}
-              </h4>
-
-              <!-- DATE -->
-              <small class="text-muted d-block mb-1">
-                {{ post.date | date: "%b %-d, %Y" }}
-              </small>
-
-              <!-- EXCERPT -->
-              <p class="text-muted small mb-0">
-                {{ post.excerpt | strip_html | truncate: 100 }}
-              </p>
-
-            </div>
-
-          </a>
-
-        </div>
-      </div>
-
-      {% endif %}
-      {% endfor %}
-
-      {% unless has_post %}
-      <div class="col-12">
-        <div class="text-center text-muted py-5">
-          No posts available yet.
-        </div>
-      </div>
-      {% endunless %}
-
-    </div>
-
+  {% if visible_count == 0 %}
+  <div class="col-12 text-center text-muted py-5">
+    No posts available yet.
   </div>
+  {% endif %}
 
 </div>
 
-
 <!-- PAGINATION -->
-<div class="container my-5">
+<div class="container mt-5">
+
   {% if paginator.total_pages > 1 %}
+
   <nav>
     <ul class="pagination justify-content-center">
 
@@ -197,11 +82,15 @@ layout: default
       <li class="page-item">
         <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
       </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">&laquo;</span>
+      </li>
       {% endif %}
 
       {% assign total = paginator.total_pages %}
       {% assign current = paginator.page %}
-      {% assign delta = 1 %}
+      {% assign delta = 2 %}
 
       {% assign start = current | minus: delta %}
       {% assign end = current | plus: delta %}
@@ -209,45 +98,44 @@ layout: default
       {% if start < 1 %}{% assign start = 1 %}{% endif %}
       {% if end > total %}{% assign end = total %}{% endif %}
 
-      <!-- FIRST -->
       {% if start > 1 %}
       <li class="page-item">
         <a class="page-link" href="{{ '/' | relative_url }}">1</a>
       </li>
 
       {% if start > 2 %}
-      <li class="page-item disabled"><span class="page-link">...</span></li>
-      {% endif %}
-      {% endif %}
-
-      <!-- RANGE -->
-      {% for page in (start..end) %}
-      <li class="page-item {% if page == current %}active{% endif %}">
-        
-        {% if page == 1 %}
-          <a class="page-link" href="{{ '/' | relative_url }}">
-            {{ page }}
-          </a>
-        {% else %}
-          <a class="page-link" href="{{ site.paginate_path | replace: ':num', page | relative_url }}">
-            {{ page }}
-          </a>
-        {% endif %}
-
+      <li class="page-item disabled">
+        <span class="page-link">...</span>
       </li>
+      {% endif %}
+      {% endif %}
+
+      {% for page in (start..end) %}
+      {% if page == current %}
+      <li class="page-item active">
+        <span class="page-link">{{ page }}</span>
+      </li>
+      {% else %}
+      <li class="page-item">
+        <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">
+          {{ page }}
+        </a>
+      </li>
+      {% endif %}
       {% endfor %}
 
-      <!-- LAST -->
       {% if end < total %}
-        {% if end < total | minus: 1 %}
-        <li class="page-item disabled"><span class="page-link">...</span></li>
-        {% endif %}
+      {% if end < total | minus: 1 %}
+      <li class="page-item disabled">
+        <span class="page-link">...</span>
+      </li>
+      {% endif %}
 
-        <li class="page-item">
-          <a class="page-link" href="{{ site.paginate_path | replace: ':num', total | relative_url }}">
-            {{ total }}
-          </a>
-        </li>
+      <li class="page-item">
+        <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', total }}">
+          {{ total }}
+        </a>
+      </li>
       {% endif %}
 
       <!-- NEXT -->
@@ -255,9 +143,15 @@ layout: default
       <li class="page-item">
         <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">&raquo;</a>
       </li>
+      {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">&raquo;</span>
+      </li>
       {% endif %}
 
     </ul>
   </nav>
+
   {% endif %}
+
 </div>

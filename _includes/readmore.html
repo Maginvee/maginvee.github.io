@@ -1,74 +1,72 @@
-<div class="bg-light mt-4 p-3 border rounded">
+<div class="readmore-list bg-light rounded border border-1 mt-4 p-4">
 
-  <h6 class="fw-bold text-uppercase mb-3">
-    <span class="text-danger">/</span> BACA JUGA <span class="text-danger">/</span>
-  </h6>
+  <h6 class="fw-bold text-decoration-none mb-3">Read More :</h6>
 
   {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" %}
-  {% assign shown_urls = "" | split: "" %}
   {% assign count = 0 %}
+  {% assign found = false %}
 
-  <ul class="mb-0 lh-base">
+  <!-- PRIORITY: TAG MATCH -->
+  {% if page.tags and page.tags.size > 0 %}
 
-    <!-- PRIORITAS TAG -->
-    {% if page.tags %}
     {% for post in related_posts %}
 
-    {% assign match = false %}
+      {% assign match = false %}
 
-    {% for tag in post.tags %}
-    {% if page.tags contains tag %}
-    {% assign match = true %}
-    {% break %}
-    {% endif %}
-    {% endfor %}
+      {% if post.tags %}
 
-    {% unless shown_urls contains post.url %}
-    {% if match %}
+        {% for tag in post.tags %}
+          {% if page.tags contains tag %}
+            {% assign match = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
 
-    <li class="mb-2">
-      <a href="{{ post.url | relative_url }}" class="text-decoration-none text-primary fw-semibold d-block">
-        {{ post.title }}
-      </a>
-    </li>
+      {% endif %}
 
-    {% assign shown_urls = shown_urls | push: post.url %}
-    {% assign count = count | plus: 1 %}
+      {% if match %}
 
-    {% if count == 5 %}
-    {% break %}
-    {% endif %}
+        {% assign found = true %}
 
-    {% endif %}
-    {% endunless %}
+        <div class="card mb-2 border-0 shadow-none">
+          <div class="card-body py-2">
 
-    {% endfor %}
-    {% endif %}
+            <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+              {{ post.title }}
+            </a>
 
-    <!-- FALLBACK -->
-    {% if count < 5 %}
-    {% for post in related_posts %}
+          </div>
+        </div>
 
-    {% unless shown_urls contains post.url %}
+        {% assign count = count | plus: 1 %}
 
-    <li class="mb-2">
-      <a href="{{ post.url | relative_url }}" class="text-decoration-none d-block text-primary">
-        {{ post.title }}
-      </a>
-    </li>
+        {% if count == 5 %}
+          {% break %}
+        {% endif %}
 
-    {% assign shown_urls = shown_urls | push: post.url %}
-    {% assign count = count | plus: 1 %}
-
-    {% if count == 5 %}
-    {% break %}
-    {% endif %}
-
-    {% endunless %}
+      {% endif %}
 
     {% endfor %}
-    {% endif %}
 
-  </ul>
+  {% endif %}
+
+  <!-- FALLBACK -->
+  {% if found == false %}
+
+    {% for post in related_posts limit:5 %}
+
+      <div class="card mb-2 border-0 shadow-none">
+        <div class="card-body py-2">
+
+          <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+            {{ post.title }}
+          </a>
+
+        </div>
+      </div>
+
+    {% endfor %}
+
+  {% endif %}
 
 </div>

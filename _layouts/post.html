@@ -2,105 +2,90 @@
 layout: default
 ---
 
-<div class="row g-4">
+<div class="row">
 
-  <!-- CONTENT -->
+  <!-- MAIN CONTENT -->
   <div class="col-lg-8">
 
-    <article>
+    <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
 
-      <div class="d-flex align-items-center gap-2 mb-3">
-
-        {% if page.categories and page.categories.size > 0 %}
-        <span class="small text-danger fw-semibold">
-          {{ page.categories[0] }}
-        </span>
-        {% endif %}
-
-        <span class="text-muted small">
-          • {{ page.date | date: "%B %-d, %Y" }}
-        </span>
-
-      </div>
-
+      <!-- IMAGE -->
       {% if page.image %}
-      <a href="https://aridjaya.com">
-        <img src="{{ page.image | relative_url }}" class="w-100 rounded mb-3"
-          style="aspect-ratio:16/9; object-fit:cover;" loading="lazy"></a>
+      <div class="mb-4">
+        <a href="https://aridjaya.com">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded w-100"
+            loading="lazy">
+        </a>
+      </div>
       {% endif %}
 
-      <h1 class="fw-bold">{{ page.title }}</h1>
+      <!-- TITLE -->
+      <header class="mb-3">
+        <h1 class="fw-bold text-capitalize" itemprop="headline">
+          {{ page.title }}
+        </h1>
 
-      <!-- ad -->
-      <div class="ad-box my-3 text-center">
-        {% include adtop.html %}
-      </div>
+        <div class="text-muted small">
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {{ page.date | date: "%B %-d, %Y" }}
+          </time>
 
-      <div class="mb-4 lh-lg">
-        {% assign parts = content | split: '</p>' %}
-        {% for p in parts %}
-        {{ p }}</p>
-        {% if forloop.index == 3 %}
-        <div class="text-start bg-light my-4">
-          {% include readmore.html %}
+          {% if page.author %}
+          • <span itemprop="author">{{ page.author }}</span>
+          {% endif %}
         </div>
-        {% endif %}
-        {% endfor %}
+      </header>
+
+      <!-- CONTENT -->
+      <div class="post-content mb-4" itemprop="articleBody">
+        {{ content }}
       </div>
 
     </article>
 
-    <!-- ad bottom -->
-    <div class="ad-box my-3 text-center">
-      {% include adbottom.html %}
+    <!-- Read More -->
+    <div id="readmore" class="readmore" style="display:none;">
+      {% include readmore.html %}
     </div>
 
     <!-- SHARE -->
     <div class="share mb-5">
-      <h6 class="fw-bold text-uppercase mb-3">
-        <span class="text-danger">/</span> BAGIKAN <span class="text-danger">/</span>
-      </h6>
+      <h6 class="fw-semibold mb-3">Share</h6>
 
       <div class="d-flex flex-wrap gap-2">
 
         <!-- WhatsApp -->
         <a href="https://wa.me/?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" target="_blank"
-          rel="noopener" class="btn btn-success btn-sm">
-          <i class="fab fa-whatsapp"></i>
-        </a>
+          rel="noopener" class="btn btn-success btn-sm d-flex align-items-center gap-2">
+          <i class="fab fa-whatsapp"></i></a>
 
         <!-- Facebook -->
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank"
-          rel="noopener" class="btn btn-primary btn-sm">
-          <i class="fab fa-facebook-f"></i>
-        </a>
+          rel="noopener" class="btn btn-primary btn-sm d-flex align-items-center gap-2">
+          <i class="fab fa-facebook-f"></i></a>
 
-        <!-- X / Twitter -->
+        <!-- Twitter / X -->
         <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}"
-          target="_blank" rel="noopener" class="btn btn-dark btn-sm">
-          <i class="fab fa-x-twitter"></i>
-        </a>
+          target="_blank" rel="noopener" class="btn btn-dark btn-sm d-flex align-items-center gap-2">
+          <i class="fab fa-x-twitter"></i></a>
 
         <!-- Telegram -->
         <a href="https://t.me/share/url?url={{ site.url }}{{ page.url }}&text={{ page.title | url_encode }}"
-          target="_blank" rel="noopener" class="btn btn-info btn-sm">
-          <i class="fab fa-telegram"></i>
-        </a>
+          target="_blank" rel="noopener" class="btn btn-info btn-sm d-flex align-items-center gap-2">
+          <i class="fab fa-telegram"></i></a>
 
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank"
-          rel="noopener" class="btn btn-secondary btn-sm">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
+          rel="noopener" class="btn btn-secondary btn-sm d-flex align-items-center gap-2">
+          <i class="fab fa-linkedin-in"></i></a>
 
-        <!-- Copy -->
-        <button onclick="copyLink()" class="btn btn-outline-dark btn-sm">
+        <!-- Copy Link -->
+        <button onclick="copyLink()" class="btn btn-outline-dark btn-sm d-flex align-items-center gap-2">
           <i class="fa fa-link"></i> Copy
         </button>
 
       </div>
     </div>
-
 
     <!-- NEXT PREV -->
     <nav class="mb-5">
@@ -125,15 +110,13 @@ layout: default
       </ul>
     </nav>
 
-    <!-- RELATED POSTS -->
+    <!-- RELATED POSTS PRO -->
     <div class="related-posts mb-5">
-      <h6 class="fw-bold text-uppercase mb-3">
-        <span class="text-danger">/</span> RELATED POST <span class="text-danger">/</span>
-      </h6>
+      <h6 class="fw-bold mb-3">Related Posts</h6>
 
       <div class="row g-3">
 
-        {% assign maxRelated = 4 %}
+        {% assign maxRelated = 8 %}
         {% assign minCommonTags = 1 %}
         {% assign relatedCount = 0 %}
 
@@ -157,21 +140,19 @@ layout: default
         {% if sameCategory or sameTagCount >= minCommonTags %}
 
         {% if relatedCount < maxRelated %}
-        <div class="col-6 col-md-6">
-
+        <div class="col-6 col-md-3">
           <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
 
             {% if post.image %}
-            <img src="{{ post.image | relative_url }}" class="w-100 rounded mb-2"
-              style="aspect-ratio:16/9; object-fit:cover;" loading="lazy">
+            <img class='img-fluid rounded mb-2 ratio ratio-4x3 mb-2' src="{{ post.image | relative_url }}"
+              style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
             {% endif %}
 
-            <span class="fw-semibold">
-              {{ post.title }}
-            </span>
+            <small class="d-block">
+              {{ post.title | truncate: 45 }}
+            </small>
 
           </a>
-
         </div>
 
         {% assign relatedCount = relatedCount | plus: 1 %}
@@ -184,33 +165,25 @@ layout: default
 
       </div>
 
-      <!-- FALLBACK -->
+      <!-- FALLBACK kalau kosong -->
       {% if relatedCount == 0 %}
       <div class="row g-3">
-        {% for post in site.posts limit:4 %}
+        {% for post in site.posts limit:8 %}
         {% if post.url != page.url %}
-        <div class="col-6 col-md-6">
-
+        <div class="col-6 col-md-3">
           <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
-
             {% if post.image %}
-            <img src="{{ post.image | relative_url }}" class="w-100 rounded mb-2"
-              style="aspect-ratio:16/9; object-fit:cover;" loading="lazy">
+            <img src="{{ post.image | relative_url }}" class="img-fluid rounded mb-2">
             {% endif %}
-
-            <span class="fw-semibold">
-              {{ post.title }}
-            </span>
-
+            <small>{{ post.title | truncate: 45 }}</small>
           </a>
-
         </div>
         {% endif %}
         {% endfor %}
       </div>
       {% endif %}
-
     </div>
+
 
   </div>
 
@@ -221,26 +194,11 @@ layout: default
 
 </div>
 
+
 <script>
   function copyLink() {
     const url = "{{ site.url }}{{ page.url }}";
     navigator.clipboard.writeText(url);
     alert("Link copied!");
   }
-</script>
-
-
-<script>
-fetch("https://api.indexnow.org/indexnow", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    host: "asninfo.id",
-    key: "acd04077e4b94f5c8a5fa2d7f8f1c772",
-    keyLocation: "https://asninfo.id/acd04077e4b94f5c8a5fa2d7f8f1c772.txt",
-    urlList: [window.location.href]
-  })
-});
 </script>

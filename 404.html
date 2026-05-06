@@ -1,41 +1,61 @@
 ---
+title: "404"
 layout: default
 permalink: /404.html
-title: "404 - Page Not Found"
 ---
 
-<div class="container py-5 text-center">
+{% assign random_posts = site.posts | sample: 6 %}
+{% if random_posts == empty %}
+{% assign random_posts = site.posts %}
+{% endif %}
 
-  <!-- TITLE -->
-  <h1 class="display-3 fw-bold text-danger">404</h1>
+<div class="row g-4 text-start">
 
-  <h4 class="fw-semibold mb-3">
-    Page Not Found
-  </h4>
+    {% for post in random_posts %}
 
-  <p class="text-muted mb-4">
-    Kamu akan dialihkan ke beranda dalam <span id="countdown">3</span> detik...
-  </p>
+    <div class="col-12 col-md-6 col-lg-4">
 
-  <div class="mt-4">
-    <a href="{{ '/' | relative_url }}" class="btn btn-primary px-3">
-      <i class="fa fa-home me-2"></i> Back to Home
-    </a>
-  </div>
+        <div class="card modern-card h-100 border-0">
+
+            <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+
+                {% if post.image %}
+                <div class="overflow-hidden position-relative">
+
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="card-img-top"
+                        style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy">
+
+                </div>
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h4 class="fw-semibold mb-2 text-capitalize">
+                        {{ post.title }}
+                    </h4>
+
+                    <small class="text-muted d-block mb-2">
+                        {{ post.date | date: "%b %-d, %Y" }}
+                    </small>
+
+                    <p class="excerpt">
+                        {{ post.excerpt | strip_html | truncate: 100 }}
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
 
 </div>
 
-<script>
-let seconds = 3;
-const countdown = document.getElementById("countdown");
-
-const timer = setInterval(() => {
-  seconds--;
-  countdown.textContent = seconds;
-
-  if (seconds <= 0) {
-    clearInterval(timer);
-    window.location.href = "{{ '/' | relative_url }}";
-  }
-}, 1000);
-</script>
+<div class="justify-content-center text-center mb-3">
+    <a href="{{ '/' | relative_url }}" class="btn btn-primary mt-5 px-4">
+        &laquo; Back to Home
+    </a>
+</div>
