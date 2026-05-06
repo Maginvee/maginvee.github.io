@@ -1,0 +1,35 @@
+# Site settings
+title: ASN INFO
+email: asninfo.id
+description: >
+  Portal informasi ASN, CPNS, PPPK, kebijakan, formasi, gaji, dan karier Aparatur Sipil Negara di Indonesia
+  
+url: "https://maginvee.github.io"
+baseurl: "/"
+
+analytics: G-N1QW4ER93C
+timezone: Asia/Jakarta
+
+future: false
+logo: logo.jpg
+default-image: default.jpg
+
+built-by: ASN INFO
+
+copyright:
+  name: ASN INFO
+  link: "https://maginvee.github.io"
+
+markdown: kramdown
+permalink: /:title/
+
+paginate: 12
+paginate_path: /page:num/
+
+include:
+  - _pages
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
