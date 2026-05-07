@@ -118,17 +118,11 @@ jQuery(document).ready(function () {
 
 /* BaCK To ToP */
 $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-        $('#back-to-top').fadeIn();
-    } else {
-        $('#back-to-top').fadeOut();
-    }
-});
-$('#back-to-top').hide().click(function () {
-    $('html, body').animate({
+    200 < $(this).scrollTop() ? $("#back-to-top").fadeIn() : $("#back-to-top").fadeOut()
+}), $("#back-to-top").hide().click(function () {
+    return $("html, body").animate({
         scrollTop: 0
-    }, 1000);
-    return false;
+    }, 1e3), !1
 });
 
 

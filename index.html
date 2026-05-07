@@ -137,12 +137,12 @@ layout: default
 
       {% if start > 1 %}
       <li class="page-item">
-        <a class="page-link" href="{{ '/' | relative_url }}">1</a>
+        <a class="page-link rounded-0" href="{{ '/' | relative_url }}">1</a>
       </li>
 
       {% if start > 2 %}
       <li class="page-item disabled">
-        <span class="page-link">...</span>
+        <span class="page-link rounded-0">...</span>
       </li>
       {% endif %}
       {% endif %}
@@ -150,11 +150,11 @@ layout: default
       {% for page in (start..end) %}
       {% if page == current %}
       <li class="page-item active">
-        <span class="page-link">{{ page }}</span>
+        <span class="page-link rounded-0">{{ page }}</span>
       </li>
       {% else %}
       <li class="page-item">
-        <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">
+        <a class="page-link rounded-0" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">
           {{ page }}
         </a>
       </li>
@@ -164,12 +164,12 @@ layout: default
       {% if end < total %}
       {% if end < total | minus: 1 %}
       <li class="page-item disabled">
-        <span class="page-link">...</span>
+        <span class="page-link rounded-0">...</span>
       </li>
       {% endif %}
 
       <li class="page-item">
-        <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', total }}">
+        <a class="page-link rounded-0" href="{{ site.paginate_path | relative_url | replace: ':num', total }}">
           {{ total }}
         </a>
       </li>
@@ -178,11 +178,11 @@ layout: default
       <!-- NEXT -->
       {% if paginator.next_page %}
       <li class="page-item">
-        <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">&raquo;</a>
+        <a class="page-link rounded-0" href="{{ paginator.next_page_path | relative_url }}">&raquo;</a>
       </li>
       {% else %}
       <li class="page-item disabled">
-        <span class="page-link">&raquo;</span>
+        <span class="page-link rounded-0">&raquo;</span>
       </li>
       {% endif %}
     </ul>
