@@ -7,14 +7,15 @@ layout: compress
 {% include head.html %}
 
 <body class="bg-light">
-  <div class="wrapper container bg-white px-3 px-md-4">
-    {% include header.html %}
-    <div class="row">
-      {{ content }}
+  <div class="wrapper bg-white px-3 px-md-4">
+    <div class="container ">
+      {% include header.html %}
+      <div class="row">
+        {{ content }}
+      </div>
     </div>
+    {% include footer.html %}
   </div>
-  {% include footer.html %}
-
 
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -29,23 +30,23 @@ layout: compress
   {% include analytics.html %}
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-  const toggle = document.querySelector(".toggleMenu");
-  const menu = document.querySelector(".nav-menu2");
+      const toggle = document.querySelector(".toggleMenu");
+      const menu = document.querySelector(".nav-menu2");
 
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault();
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    if (menu.style.display === "block") {
-      menu.style.display = "none";
-    } else {
-      menu.style.display = "block";
-    }
-  });
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      });
 
-});
-</script>
+    });
+  </script>
 </body>
 
 </html>
