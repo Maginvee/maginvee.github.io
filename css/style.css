@@ -42,21 +42,15 @@ body {
   bottom: 0;
   width: 100%;
   padding: 20px;
-
-  background: linear-gradient(to top,
-      rgba(255, 255, 255, .92),
-      rgba(255, 255, 255, .4),
-      transparent);
+  background: rgba(255,255,255,0.75)
 }
 
 .featured-label {
   display: inline-block;
   background: #d94b4b;
   color: #fff;
-
   padding: 4px 10px;
   margin-bottom: 10px;
-
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -64,11 +58,9 @@ body {
 
 .featured-title {
   margin: 0;
-
   font-size: 22px;
   line-height: 1.4;
   font-weight: 700;
-
   color: #333;
 }
 

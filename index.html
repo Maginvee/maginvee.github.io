@@ -22,6 +22,12 @@ layout: default
 
       <div class="featured-overlay">
 
+        {% if featured_post.categories %}
+        <span class="featured-label">
+          {{ featured_post.categories | first }}
+        </span>
+        {% endif %}
+
         <h2 class="featured-title">
           {{ featured_post.title }}
         </h2>
@@ -34,61 +40,6 @@ layout: default
 
   {% endif %}
   {% endif %}
-
-
-
-
-  <!-- FEATURED -->
-
-  <h6 class="fw-bold text-uppercase mb-3">
-    <span class="text-danger">/</span> FEATURED POST <span class="text-danger">/</span>
-  </h6>
-
-  {% assign featured_post = nil %}
-  {% for post in site.posts %}
-  {% if post.tags contains "featured" %}
-  {% assign publish_time = post.publish_at | date: "%s" %}
-  {% if post.publish_at == nil or publish_time <= now %}
-  {% assign featured_post = post %}
-  {% break %}
-  {% endif %}
-  {% endif %}
-  {% endfor %}
-
-  {% if featured_post %}
-  <div class="featured-post position-relative overflow-hidden">
-
-    <a href="{{ featured_post.url | relative_url }}" class="text-decoration-none text-dark">
-
-      {% if featured_post.image %}
-      <div class="position-relative">
-        <img src="{{ featured_post.image | relative_url }}" class="w-100 rounded"
-          style="aspect-ratio:16/9; object-fit:cover;" loading="lazy">
-      </div>
-      {% endif %}
-
-      <!-- TEXT DI BAWAH -->
-      <div class="mt-3">
-
-        <!-- CATEGORY -->
-        {% if featured_post.categories %}
-        <div class="small text-danger fw-semibold mb-1">
-          {{ featured_post.categories | first }}
-        </div>
-        {% endif %}
-
-        <!-- TITLE -->
-        <h2 class="fw-bold text-dark mb-2">
-          {{ featured_post.title }}
-        </h2>
-
-      </div>
-
-    </a>
-
-  </div>
-  {% endif %}
-
 
 
 
