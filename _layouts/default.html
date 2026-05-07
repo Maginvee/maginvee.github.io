@@ -27,6 +27,25 @@ layout: compress
   <script src="/js/main.js"></script>
 
   {% include analytics.html %}
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const toggle = document.querySelector(".toggleMenu");
+  const menu = document.querySelector(".nav-menu2");
+
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  });
+
+});
+</script>
 </body>
 
 </html>
