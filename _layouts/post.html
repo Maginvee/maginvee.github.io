@@ -56,16 +56,19 @@ layout: default
     </div>
 
     <!-- CONTENT -->
-    <div class="post-content mb-4" itemprop="articleBody">
-      {{ content }}
+    <div class="mb-4 lh-lg">
+      {% assign parts = content | split: '</p>' %}
+      {% for p in parts %}
+      {{ p }}</p>
+      {% if forloop.index == 3 %}
+      <div class="text-start bg-light my-4">
+        {% include readmore.html %}
+      </div>
+      {% endif %}
+      {% endfor %}
     </div>
 
   </article>
-
-  <!-- Read More -->
-  <div id="readmore" class="readmore" style="display:none;">
-    {% include readmore.html %}
-  </div>
 
   <!-- AD -->
   <div class="my-4 text-center overflow-hidden">
