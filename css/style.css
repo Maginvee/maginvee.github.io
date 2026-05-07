@@ -415,13 +415,13 @@ h4#comment-post-message {display: none;margin: 0 0 0 0;}
 .gmr-color19{background:#e56c19}
 .gmr-color20{background:#1b58b8}
 /* Footer */
-.footer {background: #2c3e50;max-width:100%;margin: 15px auto 0}
+.footer {background: #2c3e50;margin: 15px auto 0}
 .footer .widget-content {display: none;visibility: hidden;padding: 15px 0}
 .post-footer{color:#999;font-style:normal;margin:.3em 0;padding:2px;text-transform:none}
-#credit {color: #ecf0f1;font-size: 13px;padding: 15px 0;margin: 0 auto;text-align: center}
-#credit a{color:#fff}
-#credit a:hover{color:#bdc3c7}
-#credit i{color:red;margin:auto 5px}
+.credit {color: #ecf0f1;font-size: 13px;padding: 15px 0;margin: 0 auto;text-align: center}
+.credit a{color:#fff}
+.credit a:hover{color:#bdc3c7}
+.credit i{color:red;margin:auto 5px}
 span.credit {color:yellow}
 /* footer navigasi */
 .footer-navmenu {padding: 15px 0px;font-weight: 500;font-size:15px;color: #ffffff;max-width: 100%;margin: 0 auto;text-align: center;}
