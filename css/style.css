@@ -14,183 +14,122 @@
 }
 
 /* Navigation */
-.nubie-navigation {
-  position: relative;
-  padding: 0;
-  margin: 0 auto
+.nubie-navigation{
+  position:relative;
+  padding:0;
+  margin:0 auto;
 }
 
-#navigationwrapper {
-  z-index: 1;
-  margin: 0 auto 5px
+#navigationwrapper{
+  z-index:1;
+  margin:0 auto 5px;
 }
 
-#navi-idntheme {
-  height: 46px;
-  width: 100%;
-  text-transform: uppercase;
-  background: #e74c3c;
-  color: #e74c3c;
-  border-bottom: 3px solid #db301e;
+#navi-idntheme{
+  height:46px;
+  width:100%;
+  text-transform:uppercase;
+  background:#e74c3c;
+  border-bottom:3px solid #db301e;
+  overflow:hidden;
 }
 
-#navi-idntheme a {
-  font-size: .9em;
-  display: block;
-  line-height: 46px;
-  padding: 0 10px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold
+/* MENU LIST */
+#navi-idntheme ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  z-index:10;
+
+  display:flex;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  overflow-y:hidden;
+
+  white-space:nowrap;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
 }
 
-#navi-idntheme a:hover {
-  color: #fff
+#navi-idntheme ul::-webkit-scrollbar{
+  display:none;
 }
 
-#navi-idntheme a i {
-  font-weight: normal
+/* MENU ITEM */
+#navi-idntheme li{
+  position:relative;
+  flex:0 0 auto;
 }
 
-#navi-idntheme ul,
-#navi-idntheme li {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  z-index: 10
+/* LINK */
+#navi-idntheme a{
+  font-size:.9em;
+  display:block;
+  line-height:46px;
+  padding:0 14px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+  white-space:nowrap;
 }
 
-#navi-idntheme li {
-  float: left;
-  display: inline;
-  position: relative
+#navi-idntheme a:hover{
+  color:#fff;
+  background:rgba(0,0,0,0.1);
 }
 
-#navi-idntheme li:hover {
-  color: #fff
+/* FIRST MENU */
+#navi-idntheme li.firstli{
+  background:#db301e;
 }
 
-#navi-idntheme input {
-  display: none;
-  margin: 0;
-  padding: 0;
-  width: 80px;
-  height: 30px;
-  opacity: 0;
-  cursor: pointer
+#navi-idntheme li.firstli a{
+  padding:0 18px;
 }
 
-#navi-idntheme label {
-  display: none;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
-  text-align: center
+#navi-idntheme li.firstli a:hover{
+  background:transparent;
 }
 
-#navi-idntheme label span {
-  font-size: 16px;
-  position: absolute;
-  left: 35px
+/* DROPDOWN */
+#navi-idntheme ul.menus{
+  display:none;
+  position:absolute;
+  top:46px;
+  left:0;
+  width:180px;
+  background:#fff;
+  overflow:visible;
+  white-space:normal;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
-#navi-idntheme ul.menus li {
-  display: block;
-  width: 100%;
-  text-transform: none;
-  text-shadow: none
+#navi-idntheme li:hover ul.menus{
+  display:block;
 }
 
-#navi-idntheme ul.menus a {
-  color: #FFF;
-  line-height: 35px
+#navi-idntheme ul.menus li{
+  width:100%;
 }
 
-#navi-idntheme li a:hover {
-  background: rgba(0, 0, 0, 0.1)
+#navi-idntheme ul.menus a{
+  color:#222;
+  line-height:36px;
+  padding:0 12px;
+  font-weight:400;
+  text-transform:none;
 }
 
-#navi-idntheme li:hover ul.menus {
-  display: block
+#navi-idntheme ul.menus a:hover{
+  background:#f5f5f5;
+  color:#222;
 }
 
-#navi-idntheme ul.menus a:hover {
-  background: #5FC6EB;
-  color: #fff
-}
-
-#navi-idntheme li ul {
-  background: #fff;
-  margin: 0;
-  width: 150px;
-  height: auto;
-  position: absolute;
-  top: 45px;
-  left: 0;
-  z-index: 10;
-  display: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15)
-}
-
-#navi-idntheme li li {
-  display: block;
-  float: none
-}
-
-#navi-idntheme li li a:hover {
-  background: #e55a42
-}
-
-#navi-idntheme li:hover>ul {}
-
-#navi-idntheme li ul ul {
-  left: 100%;
-  top: 0
-}
-
-#navi-idntheme li li>a {
-  display: block;
-  padding: 0 10px;
-  margin: 0;
-  line-height: 34px;
-  color: #222;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.03);
-  font-weight: 400;
-  text-transform: none
-}
-
-#navi-idntheme li li>a:hover {
-  background: #f5f5f5;
-  color: #222
-}
-
-#navi-idntheme li.firstli {
-  background: #db301e;
-  line-height: 36px;
-  overflow: hidden
-}
-
-#navi-idntheme li.firstli a {
-  padding: 0 15px
-}
-
-#navi-idntheme li.firstli a:hover {
-  background: transparent
-}
-
-#navi-idntheme li a i {
-  font-family: fontawesome;
-  font-style: normal;
-  font-size: 18px
-}
-
-#navi-idntheme a i.fas.fa-angle-down {
-  margin-left: 5px;
-  font-size: 13px
-}
-
-#navi-idntheme p {
-  display: none
+/* MOBILE */
+#navi-idntheme input,
+#navi-idntheme label,
+#navi-idntheme p{
+  display:none;
 }
 
 @media screen and (max-width:800px) {
