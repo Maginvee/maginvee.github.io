@@ -76,7 +76,7 @@ layout: default
 
             {% if post.categories.size > 0 %}
             <a href="{{ '/categories/' | append: post.categories.first | append: '/' | relative_url }}"
-              class="text-danger small -uppercase fw-semibold text-decoration-none d-block mb-2">
+              class="text-danger small text-uppercase fw-semibold text-decoration-none d-block mb-2">
               {{ post.categories | first }}
             </a>
             {% endif %}
@@ -109,7 +109,7 @@ layout: default
 </div>
 
 <!-- PAGINATION -->
-<div class="mt-5">
+<div class="my-4">
   {% if paginator.total_pages > 1 %}
   <nav>
     <ul class="pagination justify-content-center">

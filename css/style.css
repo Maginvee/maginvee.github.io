@@ -19,7 +19,7 @@ a {
 
 .wrapper,
 .footer {
-  max-width: 1000px;
+  max-width: 1080px;
   overflow: hidden;
 }
 
@@ -129,7 +129,7 @@ a {
   margin-bottom: 20px;
 }
 
-.widget-title h5 {
+.widget-title h6 {
   display: inline-block;
   margin: 0 0 -3px;
   padding-bottom: 6px;

@@ -4,7 +4,7 @@
   <section class="card rounded-0 border-0 shadow-none bg-light mb-4">
     <div class="card-body">
       <div class="widget-title">
-        <h5 class="fw-bold">RECENT</h3>
+        <h6 class="fw-bold">RECENT</h6>
       </div>
       {% for post in site.posts limit:10 %}
       {% if post.url != page.url %}
@@ -25,9 +25,6 @@
               {{ post.title | truncate: 50 }}
             </small>
           </a>
-          <small class="text-muted">
-            {{ post.date | date: "%b %d, %Y" }}
-          </small>
         </div>
 
       </div>
@@ -41,7 +38,7 @@
   <section class="card rounded-0 border-0 shadow-none bg-light mb-4">
     <div class="card-body">
       <div class="widget-title">
-        <h5 class="fw-bold">CATEGORIES</h3>
+        <h6 class="fw-bold">CATEGORIES</h6>
       </div>
       <ul class="list-unstyled mb-0">
         {% for category in site.categories %}
@@ -64,7 +61,7 @@
     <div class="card rounded-0 border-0 shadow-none bg-light">
       <div class="card-body">
         <div class="widget-title">
-          <h5 class="fw-bold">FEATURED</h3>
+          <h6 class="fw-bold">FEATURED</h6>
         </div>
         <p class="small text-muted mb-2 text-center">
           {% include adsidebar.html %}

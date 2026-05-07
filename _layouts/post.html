@@ -7,8 +7,6 @@ layout: default
 
   <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
 
-
-
     <!-- TITLE -->
     <header class="mb-3">
       <h1 class="fw-bold text-capitalize" itemprop="headline">
@@ -19,7 +17,7 @@ layout: default
 
         {% if page.categories.size > 0 %}
         <a href="{{ '/categories/' | append: page.categories.first | append: '/' | relative_url }}"
-          class="text-danger text-uppercase fw-semibold text-decoration-none">
+          class="text-danger text-capitalize fw-semibold text-decoration-none">
 
           {{ page.categories | first }}
 
@@ -29,15 +27,13 @@ layout: default
         <span>•</span>
 
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-
           {{ page.date | date: "%B %-d, %Y" }}
-
         </time>
 
         {% if page.author %}
         <span>•</span>
 
-        <span itemprop="author">
+        <span class="text-capitalize text-muted" itemprop="author">
           {{ page.author }}
         </span>
         {% endif %}
@@ -69,38 +65,38 @@ layout: default
   <!-- SHARE -->
   <div class="share mb-5">
     <h6 class="fw-bold text-uppercase mb-3">
-      <span class="text-danger">/</span> SHARE <span class="text-danger">/</span>
+      <span class="text-success">/</span> SHARE <span class="text-success">/</span>
     </h6>
     
     <div class="d-flex flex-wrap gap-2">
 
       <!-- WhatsApp -->
       <a href="https://wa.me/?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" target="_blank"
-        rel="noopener" class="btn btn-success btn-sm d-flex align-items-center gap-2">
+        rel="noopener" class="btn btn-success btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fab fa-whatsapp"></i></a>
 
       <!-- Facebook -->
       <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" rel="noopener"
-        class="btn btn-primary btn-sm d-flex align-items-center gap-2">
+        class="btn btn-primary btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fab fa-facebook-f"></i></a>
 
       <!-- Twitter / X -->
       <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}"
-        target="_blank" rel="noopener" class="btn btn-dark btn-sm d-flex align-items-center gap-2">
+        target="_blank" rel="noopener" class="btn btn-dark btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fab fa-x-twitter"></i></a>
 
       <!-- Telegram -->
       <a href="https://t.me/share/url?url={{ site.url }}{{ page.url }}&text={{ page.title | url_encode }}"
-        target="_blank" rel="noopener" class="btn btn-info btn-sm d-flex align-items-center gap-2">
+        target="_blank" rel="noopener" class="btn btn-info btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fab fa-telegram"></i></a>
 
       <!-- LinkedIn -->
       <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank"
-        rel="noopener" class="btn btn-secondary btn-sm d-flex align-items-center gap-2">
+        rel="noopener" class="btn btn-secondary btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fab fa-linkedin-in"></i></a>
 
       <!-- Copy Link -->
-      <button onclick="copyLink()" class="btn btn-outline-dark btn-sm d-flex align-items-center gap-2">
+      <button onclick="copyLink()" class="btn btn-outline-dark btn-sm rounded-0 d-flex align-items-center gap-2">
         <i class="fa fa-link"></i> Copy
       </button>
 
@@ -134,7 +130,7 @@ layout: default
   <div class="related-posts mb-5">
 
     <h6 class="fw-bold text-uppercase mb-3">
-      <span class="text-danger">/</span> RELATED POSTS <span class="text-danger">/</span>
+      <span class="text-success">/</span> RELATED POSTS <span class="text-success">/</span>
     </h6>
 
     <div class="row g-3">
