@@ -17,8 +17,9 @@ permalink: /categories/
 </div>
 
 <script>
-
-// NORMALIZE HASH (IMPORTANT)
+/* =========================
+   GET HASH SAFE
+========================= */
 function getHash() {
   return (window.location.hash || "")
     .replace("#", "")
@@ -26,15 +27,15 @@ function getHash() {
     .trim();
 }
 
-let hash = getHash();
-
-// POSTS DATA
+/* =========================
+   SAFE JEKYLL DATA (NO ERROR JSON)
+========================= */
 const allPosts = [
   {% for post in site.posts %}
   {
     title: {{ post.title | jsonify }},
     url: {{ post.url | relative_url | jsonify }},
-    image: {{ post.image | default: '/images/default.jpg' | relative_url | jsonify }},
+    image: {{ post.image | default: "/images/default.jpg" | relative_url | jsonify }},
     date: {{ post.date | date: "%b %-d, %Y" | jsonify }},
     excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }},
     categories: [
@@ -47,11 +48,13 @@ const allPosts = [
   {% endfor %}
 ];
 
-// RENDER FUNCTION
-function render(data) {
+/* =========================
+   RENDER FUNCTION
+========================= */
+function render(posts) {
   const container = document.getElementById("post-list");
 
-  if (!data.length) {
+  if (!posts.length) {
     container.innerHTML = `
       <div class="col-12 text-center text-muted py-5">
         No posts found in this category.
@@ -60,53 +63,49 @@ function render(data) {
     return;
   }
 
-  let html = "";
+  container.innerHTML = posts.map(p => `
+    <div class="col-12 col-md-4">
+      <div class="card border-0 h-100">
 
-  data.forEach(p => {
-    html += `
-      <div class="col-12 col-md-4">
-        <div class="card border-0 h-100">
+        <a href="${p.url}" class="text-decoration-none text-dark">
 
-          <a href="${p.url}" class="text-decoration-none text-dark">
+          <img src="${p.image}"
+               class="w-100 rounded"
+               style="aspect-ratio:16/9; object-fit:cover;"
+               loading="lazy">
 
-            <img src="${p.image}"
-                 class="w-100 rounded"
-                 style="aspect-ratio:16/9; object-fit:cover;"
-                 loading="lazy">
+          <div class="mt-3">
 
-            <div class="mt-3">
-
-              <div class="small text-danger fw-semibold mb-1">
-                ${p.category_name}
-              </div>
-
-              <h4 class="fw-bold mb-1">
-                ${p.title}
-              </h4>
-
-              <small class="text-muted d-block mb-1">
-                ${p.date}
-              </small>
-
-              <p class="text-muted small mb-0">
-                ${p.excerpt}
-              </p>
-
+            <div class="small text-danger fw-semibold mb-1">
+              ${p.category_name}
             </div>
 
-          </a>
+            <h4 class="fw-bold mb-1">
+              ${p.title}
+            </h4>
 
-        </div>
+            <small class="text-muted d-block mb-1">
+              ${p.date}
+            </small>
+
+            <p class="text-muted small mb-0">
+              ${p.excerpt}
+            </p>
+
+          </div>
+
+        </a>
+
       </div>
-    `;
-  });
-
-  document.getElementById("post-list").innerHTML = html;
+    </div>
+  `).join("");
 }
 
-// FILTER FUNCTION
-function filterData() {
-  hash = getHash();
+/* =========================
+   FILTER FUNCTION
+========================= */
+function filterPosts() {
+  const hash = getHash();
 
   const filtered = hash
     ? allPosts.filter(p => p.categories.includes(hash))
@@ -118,10 +117,13 @@ function filterData() {
   render(filtered);
 }
 
-// INIT
-filterData();
+/* =========================
+   INIT LOAD
+========================= */
+filterPosts();
 
-// LISTEN HASH CHANGE (NO RELOAD)
-window.addEventListener("hashchange", filterData);
-
+/* =========================
+   HASH CHANGE EVENT
+========================= */
+window.addEventListener("hashchange", filterPosts);
 </script>
