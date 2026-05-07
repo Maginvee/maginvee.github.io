@@ -1,63 +1,78 @@
-<nav class="navbar navbar-expand-lg navbar-light py-1">
-  <div class="container">
+<!-- Navigation Wrapper -->
+<div id="navigationwrapper">
+  <nav
+    id="navi-idntheme"
+    itemscope
+    itemtype="https://schema.org/SiteNavigationElement"
+    role="navigation"
+  >
+    <div id="nubiemenuwrapper">
 
-    <!-- TOGGLER -->
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <p>MENU</p>
 
-    <!-- MENU -->
-    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Mobile Toggle -->
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">
+        <i class="fa fa-bars"></i>
+      </label>
 
-      <ul class="navbar-nav ms-auto text-center text-lg-start mt-3 mt-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link active" href="{{ '/' | relative_url }}">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{ '/about/' | relative_url }}">About</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="https://aridjaya.com/">Partner</a>
-        </li>
-
-        <!-- DROPDOWN -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-            Categories
-          </a>
-          <ul class="dropdown-menu border-0 shadow-sm text-center text-lg-start">
-
-            <li><a class="dropdown-item" href="{{ '/categories/aesthetic/' | relative_url }}">Aesthetic</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/background/' | relative_url }}">Background</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/car/' | relative_url }}">Car</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/flower/' | relative_url }}">Flower</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/landscape/' | relative_url }}">Landscape</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/nature/' | relative_url }}">Nature</a></li>
-            <li><a class="dropdown-item" href="{{ '/categories/wallpaper/' | relative_url }}">Wallpaper</a></li>
-
-            <li><hr class="dropdown-divider"></li>
-
-            <li>
-              <a class="dropdown-item" target="_blank" href="https://aridjaya.com/hijab/">
-                Hijab
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-        <!-- CTA BUTTON -->
-        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-          <a class="btn btn-primary w-100 w-lg-auto px-3" href="{{ '/sitemap/' | relative_url }}">
-            Sitemap
+      <!-- Menu -->
+      <ul>
+        <li class="firstli">
+          <a href="{{ '/' | relative_url }}" title="Home">
+            <span itemprop="name">Home</span>
           </a>
         </li>
 
+        <li>
+          <a href="{{ '/categories/business/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Business</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/career/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Career</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/dating/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Dating</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/insurance/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Insurance</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/relationship/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Relationship</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/travel/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Travel</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/categories/tips/' | relative_url }}" itemprop="url">
+            <span itemprop="name">Tips</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ '/sitemap.xml' | relative_url }}" itemprop="url">
+            <span itemprop="name">Sitemap</span>
+          </a>
+        </li>
       </ul>
 
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
