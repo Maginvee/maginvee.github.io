@@ -21,24 +21,24 @@
       <li><a href='/p/sitemap.html'>Sitemap</a></li>
     </ul>
   </nav>
-      <div class="row g-4">
+  <div class="row g-4">
 
-      <!-- MENU -->
-      <div class="col-12 pt-4 text-center">
-        © {{ site.time | date: "%Y" }}
-        {% if site.copyright.name %}
-        <a href="{{site.copyright.link}}" class='text-primary text-decoration-none text-capitalize fw-bolder'
-          target="_blank">
-          {{site.copyright.name}}
-        </a>
-        {% else %}
-        {{ site.title }}
-        {% endif %}
-        . Supported by <a href="https://indonesiya.com"
-          class='text-danger text-decoration-none text-capitalize fw-bolder' target="_blank">
-          Indonesiya
-        </a>.
-      </div>
-
+    <!-- MENU -->
+    <div class="col-12 pt-4 text-center">
+      © {{ site.time | date: "%Y" }}
+      {% if site.copyright.name %}
+      <a href="{{site.copyright.link}}" class='text-primary text-decoration-none text-capitalize fw-bolder'
+        target="_blank">
+        {{site.copyright.name}}
+      </a>
+      {% else %}
+      {{ site.title }}
+      {% endif %}
+      . Supported by <a href="https://indonesiya.com" class='text-danger text-decoration-none text-capitalize fw-bolder'
+        target="_blank">
+        Indonesiya
+      </a>.
     </div>
+
+  </div>
 </div>

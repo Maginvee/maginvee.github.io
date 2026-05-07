@@ -1,6 +1,67 @@
-<header class="container text-center">
+<header class="bg-white container text-center p-4 mr-auto">
     <!-- BRAND -->
     <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}">
         <h1>{{ site.title }}</h1>
     </a>
 </header>
+<!-- Navigation Wrapper -->
+<div id="navigationwrapper">
+    <nav id="navi-idntheme" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+        <div id="nubiemenuwrapper">
+            <p>MENU</p>
+            <!-- Mobile Toggle -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <i class="fa fa-bars"></i>
+            </label>
+            <!-- Menu -->
+            <ul>
+                <li class="firstli">
+                    <a href="{{ '/' | relative_url }}" title="Home">
+                        <span itemprop="name">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/business/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Business</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/career/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Career</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/dating/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Dating</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/insurance/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Insurance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/relationship/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Relationship</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/travel/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Travel</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/categories/tips/' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Tips</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ '/sitemap.xml' | relative_url }}" itemprop="url">
+                        <span itemprop="name">Sitemap</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
