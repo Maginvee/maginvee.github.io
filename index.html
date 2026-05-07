@@ -8,16 +8,31 @@ layout: default
 
   <!-- FEATURED -->
   {% if page.url == "/" or page.url == "/index.html" %}
+
+  {% assign featured_post = site.tags.featured.first %}
+
+  {% if featured_post %}
+
   <div class="featured-post position-relative overflow-hidden">
-    <a href="{{ post.url | relative_url }}" class="text-decoration-none text-white">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="img-fluid w-100 featured-img">
+
+    <a href="{{ featured_post.url | relative_url }}" class="text-decoration-none text-white">
+
+      <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}"
+        class="img-fluid w-100 featured-img">
+
       <div class="featured-overlay">
+
         <h2 class="featured-title">
-          {{ post.title }}
+          {{ featured_post.title }}
         </h2>
+
       </div>
+
     </a>
+
   </div>
+
+  {% endif %}
   {% endif %}
 
   <!-- POST GRID -->
