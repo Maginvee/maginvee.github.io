@@ -4,7 +4,7 @@ layout: default
 
 {% assign now = site.time | date: "%s" %}
 
-<div class="content-wrapper row">
+<div class="col-lg-8">
 
   {% assign visible_count = 0 %}
   {% for post in paginator.posts %}
@@ -62,8 +62,13 @@ layout: default
 
 </div>
 
+<!-- SIDEBAR -->
+<div class="col-lg-4">
+  {% include sidebar.html %}
+</div>
+
 <!-- PAGINATION -->
-<div class="container mt-5">
+<div class="mt-5">
 
   {% if paginator.total_pages > 1 %}
 
