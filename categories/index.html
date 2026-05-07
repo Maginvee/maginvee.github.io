@@ -17,9 +17,18 @@ permalink: /categories/
 </div>
 
 <script>
-const hash = window.location.hash.replace("#", "").toLowerCase();
 
-// ALL POSTS DATA
+// NORMALIZE HASH (IMPORTANT)
+function getHash() {
+  return (window.location.hash || "")
+    .replace("#", "")
+    .toLowerCase()
+    .trim();
+}
+
+let hash = getHash();
+
+// POSTS DATA
 const allPosts = [
   {% for post in site.posts %}
   {
@@ -42,7 +51,7 @@ const allPosts = [
 function render(data) {
   const container = document.getElementById("post-list");
 
-  if (data.length === 0) {
+  if (!data.length) {
     container.innerHTML = `
       <div class="col-12 text-center text-muted py-5">
         No posts found in this category.
@@ -92,19 +101,16 @@ function render(data) {
     `;
   });
 
-  container.innerHTML = html;
+  document.getElementById("post-list").innerHTML = html;
 }
 
-// FILTER DATA
-function getFiltered() {
-  return hash
-    ? allPosts.filter(p => p.categories.some(c => c === hash))
+// FILTER FUNCTION
+function filterData() {
+  hash = getHash();
+
+  const filtered = hash
+    ? allPosts.filter(p => p.categories.includes(hash))
     : allPosts;
-}
-
-// INITIAL LOAD
-function init() {
-  const filtered = getFiltered();
 
   document.getElementById("category-title").innerText =
     hash ? hash.toUpperCase() : "ALL CATEGORIES";
@@ -112,19 +118,10 @@ function init() {
   render(filtered);
 }
 
-init();
+// INIT
+filterData();
 
-// HASH CHANGE (NO RELOAD FIX)
-window.addEventListener("hashchange", () => {
-  const newHash = window.location.hash.replace("#", "").toLowerCase();
+// LISTEN HASH CHANGE (NO RELOAD)
+window.addEventListener("hashchange", filterData);
 
-  const filtered = newHash
-    ? allPosts.filter(p => p.categories.some(c => c === newHash))
-    : allPosts;
-
-  document.getElementById("category-title").innerText =
-    newHash ? newHash.toUpperCase() : "ALL CATEGORIES";
-
-  render(filtered);
-});
 </script>
