@@ -7,15 +7,7 @@ layout: default
 
   <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
 
-    <!-- IMAGE -->
-    {% if page.image %}
-    <div class="mb-4">
-      <a href="https://aridjaya.com">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid w-100"
-          loading="lazy">
-      </a>
-    </div>
-    {% endif %}
+
 
     <!-- TITLE -->
     <header class="mb-3">
@@ -23,16 +15,44 @@ layout: default
         {{ page.title }}
       </h1>
 
-      <div class="text-muted small">
+      <div class="text-muted small d-flex align-items-center gap-2 flex-wrap">
+
+        {% if post.categories.size > 0 %}
+        <a href="{{ '/categories/' | append: post.categories.first | append: '/' | relative_url }}"
+          class="text-danger text-uppercase fw-semibold text-decoration-none">
+
+          {{ post.categories | first }}
+
+        </a>
+        {% endif %}
+
+        <span>•</span>
+
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+
           {{ page.date | date: "%B %-d, %Y" }}
+
         </time>
 
         {% if page.author %}
-        • <span itemprop="author">{{ page.author }}</span>
+        <span>•</span>
+
+        <span itemprop="author">
+          {{ page.author }}
+        </span>
         {% endif %}
+
       </div>
     </header>
+
+    <!-- IMAGE -->
+    {% if page.image %}
+    <div class="mb-4">
+      <a href="https://aridjaya.com">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid w-100" loading="lazy">
+      </a>
+    </div>
+    {% endif %}
 
     <!-- CONTENT -->
     <div class="post-content mb-4" itemprop="articleBody">
