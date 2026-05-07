@@ -17,13 +17,6 @@ layout: compress
   </div>
   {% include footer.html %}
 
-  <!-- BACK TO TOP -->
-  <div class='back-to-top'>
-    <a href='#' id='back-to-top' title='back to top'>
-      <i></i>
-    </a>
-  </div>
-
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -36,24 +29,6 @@ layout: compress
 
   {% include analytics.html %}
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const toggle = document.querySelector(".toggleMenu");
-      const menu = document.querySelector(".nav-menu2");
-
-      toggle.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        if (menu.style.display === "block") {
-          menu.style.display = "none";
-        } else {
-          menu.style.display = "block";
-        }
-      });
-
-    });
-  </script>
 </body>
 
 </html>

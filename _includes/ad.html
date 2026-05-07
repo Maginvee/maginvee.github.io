@@ -1,10 +1,33 @@
+<div class="adsterra-ad"
+  data-script="https://deeperregardingcontend.com/07077f5796a85a0674c4d4cd2c86d31b/invoke.js">
+</div>
+
 <script>
-  atOptions = {
-    'key' : '07077f5796a85a0674c4d4cd2c86d31b',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
+document.addEventListener("DOMContentLoaded", function () {
+  const ads = document.querySelectorAll(".adsterra-ad");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const adBox = entry.target;
+        if (!adBox.dataset.loaded) {
+          window.atOptions = {
+            key: '07077f5796a85a0674c4d4cd2c86d31b',
+            format: 'iframe',
+            height: 250,
+            width: 300,
+            params: {}
+          };
+          const s = document.createElement('script');
+          s.src = adBox.dataset.script;
+          s.async = true;
+          adBox.appendChild(s);
+          adBox.dataset.loaded = "true";
+        }
+      }
+    });
+  }, {
+    rootMargin: "200px"
+  });
+  ads.forEach(ad => observer.observe(ad));
+});
 </script>
-<script src="https://deeperregardingcontend.com/07077f5796a85a0674c4d4cd2c86d31b/invoke.js"></script>
