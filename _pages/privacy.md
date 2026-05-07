@@ -53,4 +53,4 @@ We may update this Privacy Policy at any time. Changes will be posted on this pa
 
 If you have any questions, contact us at:
 
-**Email:** your-email@example.com
+**Email:** [support@maginve.com](https://maginve.com/)
