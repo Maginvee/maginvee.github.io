@@ -8,38 +8,33 @@ layout: default
 
   <!-- FEATURED -->
   {% if page.url == "/" or page.url == "/index.html" %}
-
   {% assign featured_post = site.tags.featured.first %}
-
   {% if featured_post %}
 
   <div class="featured-post position-relative overflow-hidden mb-4" style="aspect-ratio: 16/9;">
-
     <a href="{{ featured_post.url | relative_url }}" class="text-decoration-none text-white">
-
       <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}"
         class="img-fluid w-100 featured-img">
-
       <div class="featured-overlay">
-
         {% if featured_post.categories %}
         <span class="featured-label">
           {{ featured_post.categories | first }}
         </span>
         {% endif %}
-
         <h2 class="featured-title">
           {{ featured_post.title }}
         </h2>
-
       </div>
-
     </a>
-
   </div>
 
   {% endif %}
   {% endif %}
+
+  <!-- AD -->
+  <div class="my-4 text-center overflow-hidden">
+    {% include ad.html %}
+  </div>
 
   <!-- LATEST POST -->
   <div class="latest-post my-4">
@@ -106,6 +101,11 @@ layout: default
 <!-- SIDEBAR -->
 <div class="col-lg-4">
   {% include sidebar.html %}
+</div>
+
+<!-- AD -->
+<div class="my-4 text-center overflow-hidden">
+  {% include ad.html %}
 </div>
 
 <!-- PAGINATION -->

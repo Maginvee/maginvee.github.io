@@ -50,6 +50,11 @@ layout: default
     </div>
     {% endif %}
 
+    <!-- AD -->
+    <div class="my-4 text-center overflow-hidden">
+      {% include ad.html %}
+    </div>
+
     <!-- CONTENT -->
     <div class="post-content mb-4" itemprop="articleBody">
       {{ content }}
@@ -62,12 +67,17 @@ layout: default
     {% include readmore.html %}
   </div>
 
+  <!-- AD -->
+  <div class="my-4 text-center overflow-hidden">
+    {% include ad.html %}
+  </div>
+
   <!-- SHARE -->
   <div class="share mb-5">
     <h6 class="fw-bold text-uppercase mb-3">
       <span class="text-danger">/</span> SHARE <span class="text-danger">/</span>
     </h6>
-    
+
     <div class="d-flex flex-wrap gap-2">
 
       <!-- WhatsApp -->
