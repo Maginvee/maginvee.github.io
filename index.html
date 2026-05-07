@@ -13,7 +13,7 @@ layout: default
 
   {% if featured_post %}
 
-  <div class="featured-post position-relative overflow-hidden">
+  <div class="featured-post position-relative overflow-hidden mb-4" style="aspect-ratio: 16/9;">
 
     <a href="{{ featured_post.url | relative_url }}" class="text-decoration-none text-white">
 
@@ -42,7 +42,7 @@ layout: default
   {% endif %}
 
   <!-- LATEST POST -->
-  <div class="latest-post">
+  <div class="latest-post my-4">
     <h5>Latest Posts</h5>
   </div>
 
@@ -117,11 +117,11 @@ layout: default
       <!-- PREV -->
       {% if paginator.previous_page %}
       <li class="page-item">
-        <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
+        <a class="page-link rounded-0" href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
       </li>
       {% else %}
       <li class="page-item disabled">
-        <span class="page-link">&laquo;</span>
+        <span class="page-link rounded-0">&laquo;</span>
       </li>
       {% endif %}
 
