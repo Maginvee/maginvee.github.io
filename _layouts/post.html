@@ -173,7 +173,7 @@ layout: default
 
       {% if relatedCount < maxRelated %}
       <div class="col-6 col-md-3">
-        <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+        <a href="{{ post.url | relative_url }}" class="text-decoration-none text-danger">
 
           {% if post.image %}
           <img class='img-fluid rounded-0 mb-2 ' src="{{ post.image | relative_url }}"
@@ -203,9 +203,9 @@ layout: default
       {% for post in site.posts limit:8 %}
       {% if post.url != page.url %}
       <div class="col-6 col-md-3">
-        <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
+        <a href="{{ post.url | relative_url }}" class="text-decoration-none text-danger">
           {% if post.image %}
-          <img src="{{ post.image | relative_url }}" class="img-fluid rounded mb-2">
+          <img class="img-fluid rounded-0 mb-2" src="{{ post.image | relative_url }}">
           {% endif %}
           <small>{{ post.title | truncate: 45 }}</small>
         </a>
@@ -223,8 +223,6 @@ layout: default
 <div class="col-lg-4">
   {% include sidebar.html %}
 </div>
-
-
 
 
 <script>

@@ -23,7 +23,7 @@ default-image: logo.jpg
 built-by: Maginve
 
 copyright:
-  name: firebaseh
+  name: Maginve
   link: "https://maginvee.github.io"
 
 markdown: kramdown
@@ -34,7 +34,7 @@ paginate_path: /page:num/
 
 include:
   - _pages
-  
+
 sass:
   style: compressed
 

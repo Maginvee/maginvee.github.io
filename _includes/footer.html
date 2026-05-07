@@ -14,25 +14,22 @@
   <!--* navigasi *-->
   <nav class='footer-navmenu'>
     <ul>
-      <li><a href='/p/about.html'>About</a></li>
-      <li><a href='/p/contact.html'>Contact</a></li>
-      <li><a href='/p/privacy.html'>Privacy Policy</a></li>
-      <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
-      <li><a href='/p/sitemap.html'>Sitemap</a></li>
+      <li><a href='/about/'>About</a></li>
+      <li><a href='/contact/'>Contact</a></li>
+      <li><a href='/privacy/'>Privacy Policy</a></li>
+      <li><a href='/disclaimer/'>Disclaimer</a></li>
+      <li><a href='/sitemap/'>Sitemap</a></li>
     </ul>
   </nav>
   <div class="credit col-12 pt-4 text-center">
-    © {{ site.time | date: "%Y" }}
+    Copyright © {{ site.time | date: "%Y" }}
     {% if site.copyright.name %}
-    <a href="{{site.copyright.link}}" class='text-primary text-decoration-none text-capitalize fw-bolder'
+    <a href="{{site.copyright.link}}" class='text-warning text-decoration-none text-capitalize fw-bolder'
       target="_blank">
       {{site.copyright.name}}
     </a>
     {% else %}
     {{ site.title }}
     {% endif %}
-    . Supported by <a href="https://indonesiya.com" class='text-danger text-decoration-none text-capitalize fw-bolder'
-      target="_blank">
-      Indonesiya</a>
   </div>
 </footer>
