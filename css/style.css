@@ -17,10 +17,9 @@ a {
   text-decoration: none;
 }
 
-.wrapper {
-  max-width: 1080px;
-  margin: 20px auto;
-  padding: 16px 36px;
+.wrapper,
+.footer {
+  max-width: 1000px;
   overflow: hidden;
 }
 

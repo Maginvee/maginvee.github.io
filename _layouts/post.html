@@ -113,7 +113,7 @@ layout: default
 
       {% if page.previous.url %}
       <li class="page-item">
-        <a class="page-link" href="{{ page.previous.url | relative_url }}">
+        <a class="page-link rounded-0 bg-light" href="{{ page.previous.url | relative_url }}">
           &laquo; {{ page.previous.title | truncate: 40 }}
         </a>
       </li>
@@ -121,7 +121,7 @@ layout: default
 
       {% if page.next.url %}
       <li class="page-item ms-auto">
-        <a class="page-link" href="{{ page.next.url | relative_url }}">
+        <a class="page-link rounded-0 bg-light" href="{{ page.next.url | relative_url }}">
           {{ page.next.title | truncate: 40 }} &raquo;
         </a>
       </li>
