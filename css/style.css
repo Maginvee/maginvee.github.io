@@ -13,6 +13,20 @@ body {
   position: relative;
 }
 
+.widget-title{
+  border-bottom:1px solid #e5e5e5;
+  margin-bottom:20px;
+}
+
+.widget-title h5{
+  display:inline-block;
+  margin:0;
+  padding-bottom:6px;
+  text-transform:uppercase;
+  color:#333;
+  border-bottom:3px solid #2a9d8f;
+}
+
 .share .btn {
   border-radius: 5px;
   font-size: 1rem;
