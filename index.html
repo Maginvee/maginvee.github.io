@@ -22,25 +22,21 @@ layout: default
             {% assign post_time = post.date | date: "%s" %}
             {% assign diff = now | minus: post_time %}
 
-            {% if diff < 604800 %}
-            <span class="badge bg-danger position-absolute m-2">NEW</span>
-            {% endif %}
-
-            <img src="{{ post.image | relative_url }}" class="card-img-top"
-              style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy">
+            <img src="{{ post.image | relative_url }}" class="card-img rounded-0"
+              style="aspect-ratio: 16/9; object-fit: cover;" loading="lazy">
           </div>
           {% endif %}
 
-          <div class="card-body">
-            <h4 class="fw-semibold mb-2 text-capitalize">
+          <div class="card-body py-3 px-0">
+            <h4 class="fw-bold mb-2 text-capitalize">
               {{ post.title }}
             </h4>
 
-            <small class="text-muted d-block mb-2">
+            <small class="text-danger d-block mb-2">
               {{ post.date | date: "%b %-d, %Y" }}
             </small>
 
-            <p class="excerpt">
+            <p class="text-muted excerpt">
               {{ post.excerpt | strip_html | truncate: 100 }}
             </p>
           </div>
