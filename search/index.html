@@ -17,30 +17,39 @@ permalink: /search/
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const query = (params.get("q") || "").trim().toLowerCase();
 
-// SAFE POSTS DATA (FIXED)
+/* =========================
+   GET QUERY SAFE
+========================= */
+function getQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get("q") || "").trim().toLowerCase();
+}
+
+/* =========================
+   POSTS DATA (SAFE JEKYLL)
+========================= */
 const allPosts = [
   {% for post in site.posts %}
   {
     title: {{ post.title | jsonify }},
     url: {{ post.url | relative_url | jsonify }},
-    image: {{ post.image | default: '/images/default.jpg' | relative_url | jsonify }},
+    image: {{ post.image | default: "/images/default.jpg" | relative_url | jsonify }},
     date: {{ post.date | date: "%b %-d, %Y" | jsonify }},
     excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }},
+    content: {{ post.content | strip_html | jsonify }},
     category: {{ post.categories[0] | default: "Uncategorized" | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ];
 
-const container = document.getElementById("search-result");
-const info = document.getElementById("search-info");
-
-// RENDER FUNCTION
+/* =========================
+   RENDER FUNCTION
+========================= */
 function render(results) {
+  const container = document.getElementById("search-result");
 
-  if (results.length === 0) {
+  if (!results.length) {
     container.innerHTML = `
       <div class="col-12 text-center text-muted py-5">
         No results found.
@@ -49,62 +58,63 @@ function render(results) {
     return;
   }
 
-  let html = "";
+  container.innerHTML = results.map(p => `
+    <div class="col-12 col-md-4">
+      <div class="card border-0 h-100">
 
-  results.forEach(p => {
-    html += `
-      <div class="col-12 col-md-4">
-        <div class="card border-0 h-100">
+        <a href="${p.url}" class="text-decoration-none text-dark">
 
-          <a href="${p.url}" class="text-decoration-none text-dark">
+          <img src="${p.image}"
+               class="w-100 rounded"
+               style="aspect-ratio:16/9; object-fit:cover;"
+               loading="lazy">
 
-            <img src="${p.image}"
-                 class="w-100 rounded"
-                 style="aspect-ratio:16/9; object-fit:cover;"
-                 loading="lazy">
+          <div class="mt-3">
 
-            <div class="mt-3">
-
-              <div class="small text-danger fw-semibold mb-1">
-                ${p.category}
-              </div>
-
-              <h4 class="fw-bold mb-1">
-                ${p.title}
-              </h4>
-
-              <small class="text-muted d-block mb-1">
-                ${p.date}
-              </small>
-
-              <p class="text-muted small mb-0">
-                ${p.excerpt}
-              </p>
-
+            <div class="small text-danger fw-semibold mb-1">
+              ${p.category}
             </div>
 
-          </a>
+            <h4 class="fw-bold mb-1">
+              ${p.title}
+            </h4>
 
-        </div>
+            <small class="text-muted d-block mb-1">
+              ${p.date}
+            </small>
+
+            <p class="text-muted small mb-0">
+              ${p.excerpt}
+            </p>
+
+          </div>
+
+        </a>
+
       </div>
-    `;
-  });
-
-  container.innerHTML = html;
+    </div>
+  `).join("");
 }
 
-// MAIN SEARCH LOGIC
+/* =========================
+   SEARCH ENGINE (FIXED)
+========================= */
 function runSearch() {
+
+  const query = getQuery();
+  const info = document.getElementById("search-info");
 
   if (!query) {
     info.innerText = "Type a keyword to search...";
-    container.innerHTML = "";
+    document.getElementById("search-result").innerHTML = "";
     return;
   }
 
   const results = allPosts.filter(p => {
     return (
       p.title.toLowerCase().includes(query) ||
+      p.excerpt.toLowerCase().includes(query) ||
+      p.content.toLowerCase().includes(query) ||
       p.category.toLowerCase().includes(query)
     );
   });
@@ -114,6 +124,9 @@ function runSearch() {
   render(results);
 }
 
-// RUN
+/* =========================
+   RUN
+========================= */
 runSearch();
+
 </script>
