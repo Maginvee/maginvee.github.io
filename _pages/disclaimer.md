@@ -1,31 +1,31 @@
 ---
-layout: default
+layout: page
 title: Disclaimer
 permalink: /disclaimer/
 ---
 
 All information provided on this website (Maginve) is published in good faith and for general informational purposes only.
 
-#### 1. Accuracy of Information
+###### Accuracy of Information
 
 We strive to provide accurate and up-to-date information, but we make no warranties or guarantees regarding the completeness, reliability, or accuracy of any information on this site.
 
-#### 2. Use at Your Own Risk
+###### Use at Your Own Risk
 
 Any action you take based on the information found on this website is strictly at your own risk. We are not liable for any losses or damages in connection with the use of our website.
 
-#### 3. External Links
+###### External Links
 
 This website may contain links to external websites. We have no control over the content and practices of these third-party sites and assume no responsibility for them.
 
-#### 4. Advertisements
+###### Advertisements
 
 We may display advertisements from third-party networks such as Google AdSense or others. All responsibility for ad content lies with the respective advertisers.
 
-#### 5. Consent
+###### Consent
 
 By using our website, you hereby consent to this disclaimer and agree to its terms.
 
-#### 6. Updates
+###### Updates
 
 We reserve the right to update, amend, or make any changes to this disclaimer at any time without prior notice.

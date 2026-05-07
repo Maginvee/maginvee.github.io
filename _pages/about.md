@@ -12,7 +12,7 @@ This platform is built to make it easy for users to explore, discover, and downl
 
 All wallpapers are available for **free download**, allowing you to personalize your device quickly and effortlessly with beautiful visuals.
 
-#### What You’ll Find
+###### What You’ll Find
 
 - High-quality HD, Full HD, and 4K wallpapers  
 - Nature and landscape photography  
@@ -20,7 +20,7 @@ All wallpapers are available for **free download**, allowing you to personalize 
 - City and architecture wallpapers  
 - Seasonal and atmospheric scenes  
 
-#### Start Exploring
+###### Start Exploring
 
 Enjoy browsing and find the perfect wallpaper for your screen.
 
