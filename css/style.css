@@ -80,25 +80,20 @@ img {
 .latest-post {
   background: #f3f3f3;
   margin: 0 0 15px;
-  font-size: 12px;
-  font-size: .75rem;
   overflow: hidden
 }
 
-.latest-post h5 {
+.latest-post h6 {
   background: #C94A4A;
   display: inline-block;
   position: relative;
   line-height: 28px;
-  font-size: 12px;
-  font-size: .75rem;
   margin: 0;
   padding: 0 15px;
-  color: #fff;
-  text-transform: uppercase
+ 
 }
 
-.latest-post h5:after {
+.latest-post h6:after {
   content: "";
   display: block;
   position: absolute;
