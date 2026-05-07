@@ -17,6 +17,12 @@ a {
   text-decoration: none;
 }
 
+.wrapper {
+  padding: 1.5rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .wrapper,
 .footer {
   max-width: 1080px;
@@ -70,19 +76,6 @@ a {
   color: #333;
 }
 
-/* MOBILE */
-@media(max-width:768px) {
-
-  .featured-post {
-    height: 280px;
-  }
-
-  .featured-title {
-    font-size: 18px;
-  }
-
-}
-
 /* LATEST POST */
 .latest-post {
   background: #f3f3f3;
@@ -103,12 +96,6 @@ a {
   padding: 0 15px;
   color: #fff;
   text-transform: uppercase
-}
-
-@media screen and (max-width:480px) {
-  .latest-post h5 {
-    padding: 0 10px
-  }
 }
 
 .latest-post h5:after {
@@ -375,110 +362,27 @@ span.credit {
   z-index: 9999;
 }
 
-/* Responsive */
-@media screen and (max-width:1040px) {
+/* RESPONSIVE */
+@media(max-width:768px) {
 
-  #outer-wrapper,
-  #wrapper {
-    width: auto
-  }
-}
+  .wrapper {
+    padding: 1rem;
 
-@media screen and (max-width:980px) {
-  #wrapper {
-    padding: 0 25px
   }
 
-  #navitions {
-    border-bottom: none
-  }
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-  .ai-viewport-1 {
-    display: none !important;
+  .featured-post {
+    height: 280px;
   }
 
-  .ai-viewport-2 {
-    display: inherit !important;
-  }
-}
-
-@media screen and (max-width:800px) {
-
-  #header-inner h1,
-  #header-inner img,
-  #header h1,
-  #header-inner h2,
-  #header h2,
-  #header-inner .title,
-  #header-inner h1 a,
-  #header-inner .title a {
-    text-align: center
-  }
-}
-
-@media screen and (min-width:768px) {
-  #header2 {
-    display: none;
-    visibility: hidden
-  }
-}
-
-@media screen and (max-width:768px) {
-
-  #header2,
-  #header2 .widget {
-    display: block !important;
-    max-width: 100%;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    margin: 1px auto
+  .featured-title {
+    font-size: 18px;
   }
 
-  #wrapper {
-    padding: 0 20px
-  }
-
-  #main-wrapper,
-  #sidebar-wrapper {
-    float: none;
-    width: 100%;
-    max-width: 100%
-  }
-
-  .post-body img {
-    width: 100%;
-    aspect-ratio: 0 !important
-  }
-}
-
-@media screen and (max-width:600px) {
-  #wrapper {
-    padding: 0 15px
-  }
 }
 
 @media screen and (max-width:480px) {
-  #wrapper {
-    padding: 0 10px
-  }
+  .wrapper {
+    padding: .5rem;
 
-  .post-thumbnail {
-    width: 100%;
-    margin: 0 auto 5px
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-
-  .ads-left,
-  .ads-right {
-    display: block;
-    float: none;
-    margin: 5px 0 0;
-    text-align: center
   }
 }
