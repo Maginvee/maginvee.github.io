@@ -6,12 +6,12 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Maginve
+title: MAGINVE
 email: admin@maginve.com
 description: >
   A collection of high-quality HD, Full HD, and 4K wallpapers featuring nature landscapes, mountains, forests, beaches, sunsets, city views, and aesthetic designs.
 
-url: "https://maginvee.github.io"
+url: "https://maginve.com"
 baseurl: "/"
 
 timezone: Asia/Jakarta
@@ -25,7 +25,7 @@ built-by: Maginve
 
 copyright:
   name: Maginve
-  link: "https://maginvee.github.io"
+  link: "https://maginve.com"
 
 markdown: kramdown
 permalink: /:title/
