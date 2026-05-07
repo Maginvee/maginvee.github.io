@@ -43,7 +43,7 @@
       <ul class="list-unstyled mb-0">
         {% for category in site.categories %}
         <li class="mb-2 d-flex justify-content-between">
-          <a href="/categories/#{{ category[0] | slugify }}"
+          <a href="/categories/#{{ category[0] | slugify | downcase }}"
             class="text-capitalize text-decoration-none">
             {{ category[0] }}
           </a>
@@ -80,7 +80,7 @@
         {% assign sorted_categories = site.categories | sort %}
         {% for category in sorted_categories %}
         {% if category[0] != "" %}
-        <a href="/categories/#{{ category[0] | slugify }}"
+        <a href="/categories/#{{ category[0] | slugify | downcase }}"
           class="small text-decoration-none border border-1 text-capitalize px-2 py-1 rounded">
           {{ category[0] }}
         </a>

@@ -20,6 +20,7 @@ permalink: /search/
 const params = new URLSearchParams(window.location.search);
 const query = (params.get("q") || "").trim().toLowerCase();
 
+// SAFE POSTS DATA (FIXED)
 const allPosts = [
   {% for post in site.posts %}
   {
@@ -28,7 +29,6 @@ const allPosts = [
     image: {{ post.image | default: '/images/default.jpg' | relative_url | jsonify }},
     date: {{ post.date | date: "%b %-d, %Y" | jsonify }},
     excerpt: {{ post.excerpt | strip_html | truncate: 100 | jsonify }},
-    content: {{ post.content | strip_html | jsonify }},
     category: {{ post.categories[0] | default: "Uncategorized" | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
@@ -37,7 +37,9 @@ const allPosts = [
 const container = document.getElementById("search-result");
 const info = document.getElementById("search-info");
 
-function renderResults(results) {
+// RENDER FUNCTION
+function render(results) {
+
   if (results.length === 0) {
     container.innerHTML = `
       <div class="col-12 text-center text-muted py-5">
@@ -91,20 +93,27 @@ function renderResults(results) {
   container.innerHTML = html;
 }
 
-// MAIN LOGIC
-if (!query) {
-  info.innerText = "Type a keyword to search...";
-  container.innerHTML = "";
-} else {
+// MAIN SEARCH LOGIC
+function runSearch() {
 
-  const results = allPosts.filter(p =>
-    p.title.toLowerCase().includes(query) ||
-    p.content.toLowerCase().includes(query) ||
-    p.category.toLowerCase().includes(query)
-  );
+  if (!query) {
+    info.innerText = "Type a keyword to search...";
+    container.innerHTML = "";
+    return;
+  }
+
+  const results = allPosts.filter(p => {
+    return (
+      p.title.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query)
+    );
+  });
 
   info.innerText = `${results.length} result(s) for "${query}"`;
 
-  renderResults(results);
+  render(results);
 }
+
+// RUN
+runSearch();
 </script>
