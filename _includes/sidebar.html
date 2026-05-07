@@ -43,7 +43,7 @@
       <ul class="list-unstyled mb-0">
         {% for category in site.categories %}
         <li class="mb-2 d-flex justify-content-between">
-          <a href="{{ '/categories/' | append: category[0] | append: '/' | slugify | relative_url }}"
+          <a href="/categories/#{{ category[0] | slugify }}"
             class="text-capitalize text-decoration-none">
             {{ category[0] }}
           </a>
