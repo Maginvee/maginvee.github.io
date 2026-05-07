@@ -92,7 +92,7 @@ form{margin:0;padding:0}
 .container{width:1040px;background:#fff;margin:0 auto;padding:0;overflow:hidden;}
 .wrapper{background:#fff;margin:0 auto;padding:0 30px;overflow:hidden;}
 .content-wrapper{background:#fff;width:100%;max-width:100%}
-#main-wrapper{background:#fff;float:left;width:65%;max-width:100%;margin:0;padding:0}
+.main-wrapper{background:#fff;float:left;width:65%;max-width:100%;margin:0;padding:0}
 #nav-top li, #navi li{list-style:none}
 /* header */
 #header-wrapper{max-width:100%;background:#fff;margin:0 auto;padding:10px 0;overflow:hidden;text-align: center}
