@@ -17,10 +17,12 @@ layout: default
 
       <div class="text-muted small d-flex align-items-center gap-2 flex-wrap">
 
-        {% if post.categories.size > 0 %}
-        <a href="{{ '/categories/' | append: post.categories.first | append: '/' | relative_url }}"
-          class="text-danger small -uppercase fw-semibold text-decoration-none d-block mb-2">
-          {{ post.categories | first }}
+        {% if page.categories.size > 0 %}
+        <a href="{{ '/categories/' | append: page.categories.first | append: '/' | relative_url }}"
+          class="text-danger text-uppercase fw-semibold text-decoration-none">
+
+          {{ page.categories | first }}
+
         </a>
         {% endif %}
 
@@ -160,8 +162,8 @@ layout: default
         <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark">
 
           {% if post.image %}
-          <img class='img-fluid rounded mb-2 ratio ratio-4x3 mb-2' src="{{ post.image | relative_url }}"
-            style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+          <img class='img-fluid rounded-0 mb-2 ' src="{{ post.image | relative_url }}"
+            style="aspect-ratio: 16/9; object-fit: cover;" loading="lazy" />
           {% endif %}
 
           <small class="d-block fw-bold">
