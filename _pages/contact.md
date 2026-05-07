@@ -4,8 +4,6 @@ title: Contact
 permalink: /contact/
 ---
 
-## Contact Us
-
 Have a question, suggestion, or feedback? Feel free to get in touch. We always appreciate hearing from visitors and improving the experience of this wallpaper collection.
 
 ### You can contact us for:
