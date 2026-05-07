@@ -21,9 +21,9 @@ layout: default
           {{ featured_post.categories | first }}
         </span>
         {% endif %}
-        <h2 class="featured-title">
+        <h3 class="featured-title">
           {{ featured_post.title }}
-        </h2>
+        </h3>
       </div>
     </a>
   </div>
@@ -71,7 +71,7 @@ layout: default
 
             {% if post.categories.size > 0 %}
             <a href="{{ '/categories/' | append: post.categories.first | append: '/' | relative_url }}"
-              class="text-danger small text-uppercase fw-semibold text-decoration-none d-block mb-2">
+              class="text-danger small text-capitalize fw-semibold text-decoration-none d-block mb-2">
               {{ post.categories | first }}
             </a>
             {% endif %}

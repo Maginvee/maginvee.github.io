@@ -4,26 +4,28 @@ title: Disclaimer
 permalink: /disclaimer/
 ---
 
-<section class="container py-5">
-  <h1 class="fw-bold mb-4">Disclaimer</h1>
+All information provided on this website (Maginve) is published in good faith and for general informational purposes only.
 
-  <p>Semua informasi yang disediakan di website Portal ASN Indonesia dipublikasikan dengan itikad baik dan hanya untuk tujuan informasi umum.</p>
+### 1. Accuracy of Information
 
-  <h5 class="mt-4">1. Akurasi Informasi</h5>
-  <p>Kami berusaha menyajikan informasi yang akurat dan terbaru, namun kami tidak memberikan jaminan atas kelengkapan, keandalan, dan keakuratan informasi tersebut.</p>
+We strive to provide accurate and up-to-date information, but we make no warranties or guarantees regarding the completeness, reliability, or accuracy of any information on this site.
 
-  <h5 class="mt-4">2. Risiko Penggunaan</h5>
-  <p>Segala tindakan yang Anda ambil berdasarkan informasi dari website ini sepenuhnya merupakan tanggung jawab Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan sehubungan dengan penggunaan website ini.</p>
+### 2. Use at Your Own Risk
 
-  <h5 class="mt-4">3. Tautan Eksternal</h5>
-  <p>Website ini mungkin berisi tautan ke situs lain. Kami tidak memiliki kontrol atas isi dan kebijakan situs tersebut dan tidak bertanggung jawab atas konten pihak ketiga.</p>
+Any action you take based on the information found on this website is strictly at your own risk. We are not liable for any losses or damages in connection with the use of our website.
 
-  <h5 class="mt-4">4. Iklan</h5>
-  <p>Kami menampilkan iklan dari pihak ketiga seperti Google AdSense. Konten iklan sepenuhnya menjadi tanggung jawab penyedia iklan tersebut.</p>
+### 3. External Links
 
-  <h5 class="mt-4">5. Persetujuan</h5>
-  <p>Dengan menggunakan website ini, Anda menyetujui disclaimer ini dan semua ketentuannya.</p>
+This website may contain links to external websites. We have no control over the content and practices of these third-party sites and assume no responsibility for them.
 
-  <h5 class="mt-4">6. Perubahan</h5>
-  <p>Kami berhak untuk memperbarui, mengubah, atau memperbaiki isi halaman ini kapan saja tanpa pemberitahuan sebelumnya.</p>
-</section>
+### 4. Advertisements
+
+We may display advertisements from third-party networks such as Google AdSense or others. All responsibility for ad content lies with the respective advertisers.
+
+### 5. Consent
+
+By using our website, you hereby consent to this disclaimer and agree to its terms.
+
+### 6. Updates
+
+We reserve the right to update, amend, or make any changes to this disclaimer at any time without prior notice.

@@ -4,36 +4,53 @@ title: Kebijakan Privasi
 permalink: /privacy/
 ---
 
-<section class="container py-5">
-  <h1 class="fw-bold mb-4">Kebijakan Privasi</h1>
+Welcome to **Maginve**. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
 
-  <p>Kami di Portal ASN Indonesia sangat menghargai privasi pengunjung. Dokumen Kebijakan Privasi ini menjelaskan jenis informasi yang dikumpulkan dan bagaimana kami menggunakannya.</p>
+### 1. Information We Collect
 
-  <h5 class="mt-4">1. Informasi yang Kami Kumpulkan</h5>
-  <p>Kami dapat mengumpulkan informasi pribadi seperti nama, alamat email, atau data lain yang Anda berikan secara sukarela saat menghubungi kami.</p>
-  <p>Kami juga mengumpulkan data non-pribadi seperti alamat IP, jenis browser, ISP, tanggal/waktu, dan halaman yang dikunjungi untuk analisis statistik.</p>
+- Personal information such as name or email address (only if you submit it voluntarily).
+- Non-personal data such as browser type, device information, IP address, and pages visited.
+- Cookies to improve user experience and analyze site performance.
 
-  <h5 class="mt-4">2. Penggunaan Informasi</h5>
-  <p>Informasi yang kami kumpulkan digunakan untuk:</p>
-  <ul>
-    <li>Meningkatkan kualitas konten website</li>
-    <li>Memahami kebutuhan pengunjung</li>
-    <li>Menanggapi pertanyaan atau permintaan pengguna</li>
-  </ul>
+### 2. How We Use Information
 
-  <h5 class="mt-4">3. Cookies</h5>
-  <p>Website ini menggunakan cookies untuk menyimpan informasi preferensi pengunjung dan mengoptimalkan pengalaman pengguna dengan menyesuaikan konten berdasarkan browser atau informasi lainnya.</p>
+- Improve website performance and user experience
+- Respond to user inquiries
+- Analyze traffic and usage behavior
+- Display relevant advertisements
 
-  <h5 class="mt-4">4. Google AdSense & Pihak Ketiga</h5>
-  <p>Kami menggunakan layanan periklanan pihak ketiga seperti Google AdSense. Vendor pihak ketiga dapat menggunakan cookies (seperti DART cookie) untuk menampilkan iklan kepada pengguna berdasarkan kunjungan mereka ke situs ini dan situs lainnya di internet.</p>
-  <p>Pengguna dapat memilih untuk menonaktifkan penggunaan cookie melalui pengaturan browser masing-masing.</p>
+### 3. Cookies
 
-  <h5 class="mt-4">5. Keamanan Data</h5>
-  <p>Kami berupaya menjaga keamanan informasi pengguna, namun perlu diketahui bahwa tidak ada metode transmisi data melalui internet yang 100% aman.</p>
+We use cookies to store user preferences and track website usage. You can disable cookies through your browser settings, but some features may not work properly.
 
-  <h5 class="mt-4">6. Persetujuan</h5>
-  <p>Dengan menggunakan website kami, Anda dengan ini menyetujui Kebijakan Privasi kami dan menyetujui ketentuannya.</p>
+### 4. Third-Party Services
 
-  <h5 class="mt-4">7. Update</h5>
-  <p>Kebijakan ini dapat diperbarui sewaktu-waktu. Perubahan akan ditampilkan di halaman ini.</p>
-</section>
+We may use third-party services such as analytics tools and advertising networks. These services may collect data based on their own privacy policies.
+
+### 5. Advertising
+
+Third-party advertisers may use cookies to show ads based on your interests and browsing behavior.
+
+### 6. Data Protection
+
+We take reasonable security measures to protect your data, but we cannot guarantee 100% security over the internet.
+
+### 7. Children's Privacy
+
+We do not knowingly collect personal data from children under 13 years old.
+
+### 8. Your Rights
+
+- Access your personal data  
+- Request correction or deletion  
+- Disable cookies via browser settings  
+
+### 9. Changes to This Policy
+
+We may update this Privacy Policy at any time. Changes will be posted on this page.
+
+### 10. Contact Us
+
+If you have any questions, contact us at:
+
+**Email:** your-email@example.com
