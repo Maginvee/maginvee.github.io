@@ -88,15 +88,6 @@ form{margin:0;padding:0}
 .ai-viewport-2 {display: none !important;}
 .ai-viewport-1 {display: inherit !important;}
 .ai-viewport-0 {display: none !important;}
-/* Body CSS */
-.container{width:1040px;background:#fff;margin:0 auto;padding:0;overflow:hidden;}
-.wrapper{background:#fff;margin:0 auto;padding:0 30px;overflow:hidden;}
-.content-wrapper{background:#fff;width:100%;max-width:100%}
-.main-wrapper{background:#fff;float:left;width:65%;max-width:100%;margin:0;padding:0}
-#nav-top li, #navi li{list-style:none}
-/* header */
-#header-wrapper{max-width:100%;background:#fff;margin:0 auto;padding:10px 0;overflow:hidden;text-align: center}
-#header-inner h1,#header-inner img, #header1 h1,#header-inner h2,#header1 h2, #header-inner .title,#header-inner h1 a,#header-inner .title a{font-family:Roboto;font-size:20px;margin:0;font-weight:bold;padding:0;color:#db301e;text-transform:uppercase}
 /* Navigation */
 .nubie-navigation{position:relative;padding:0;margin:0 auto}
 #navigationwrapper{z-index:1;margin:0 auto 5px}
