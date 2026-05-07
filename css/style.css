@@ -193,18 +193,6 @@
   display: none
 }
 
-@media (max-width:991px) {
-
-  #navi-idntheme ul {
-    flex-wrap: wrap;
-  }
-
-  #navi-idntheme li {
-    width: 100%;
-  }
-
-}
-
 @media screen and (max-width:800px) {
   #navi-idntheme {
     position: relative
